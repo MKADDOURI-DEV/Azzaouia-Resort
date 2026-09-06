@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" data-theme="light" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Azzaouia Resort — depuis 1678, un resort authentique aux portes du Parc National de Tazekka. Chambres, suites et dortoirs à Aïn Sahla, Taza." />
+  <title>Azzaouia Resort — Depuis 1678, Taza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ Loading Screen ============ -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <img class="loader__emblem" src="assets/icons/logo.jpeg" alt="Azzaouia Resort" width="56" height="56" />
+      <div class="loader__bar"><span></span></div>
+      <p class="loader__text" data-i18n="loader.text">Azzaouia Resort</p>
+    </div>
+  </div>
+
+  <!-- ============ Scroll Progress ============ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============ Navbar ============ -->
+  <header class="navbar" id="navbar">
+    <nav class="nav container">
+      <a href="#home" class="nav__logo">
+        <img src="assets/icons/logo.jpeg" alt="Azzaouia Resort" class="nav__logo-mark" width="36" height="36" />
+        <span class="nav__logo-text">Azzaouia Resort</span>
+      </a>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#home" class="nav__link" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="#accommodation" class="nav__link" data-i18n="nav.accommodation">Hébergement</a></li>
+        <li><a href="#services" class="nav__link" data-i18n="nav.services">Services</a></li>
+        <li><a href="#gallery" class="nav__link" data-i18n="nav.gallery">Galerie</a></li>
+        <li><a href="#about" class="nav__link" data-i18n="nav.about">À Propos</a></li>
+        <li><a href="#location" class="nav__link" data-i18n="nav.location">Localisation</a></li>
+        <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <!-- Language switcher (FR · EN · AR) -->
+        <div class="lang" id="langSwitch">
+          <button class="lang__toggle" id="langToggle" type="button"
+                  aria-haspopup="true" aria-expanded="false"
+                  data-i18n-attr="aria-label:nav.langLabel" aria-label="Changer de langue">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" />
+            </svg>
+            <span class="lang__current" id="langCurrent">FR</span>
+          </button>
+          <ul class="lang__menu" id="langMenu" role="menu">
+            <li><button type="button" class="lang__option" role="menuitem" data-lang="fr">Français</button></li>
+            <li><button type="button" class="lang__option" role="menuitem" data-lang="en">English</button></li>
+            <li><button type="button" class="lang__option" role="menuitem" data-lang="ar" lang="ar">العربية</button></li>
+          </ul>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" data-i18n-attr="aria-label:nav.themeLabel" aria-label="Basculer le mode sombre">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="5" />
+            <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+
+        <button type="button" class="btn btn--gold nav__reserve" data-reserve data-i18n="cta.book">Réserver</button>
+
+        <button class="nav__hamburger" id="hamburger" data-i18n-attr="aria-label:nav.menuLabel" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="home">
+      <div class="hero__bg">
+        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+               poster="assets/img/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+          <source src="assets/video/azzaouia-hero.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero__overlay"></div>
+
+      <div class="container hero__content">
+        <p class="hero__eyebrow reveal" data-reveal="fade-up" data-i18n="hero.eyebrow">Bienvenue à Aïn Sahla, Taza</p>
+        <h1 class="hero__title reveal" data-reveal="fade-up" data-delay="80" data-i18n="hero.title">Azzaouia Resort</h1>
+        <p class="hero__slogan reveal" data-reveal="fade-up" data-delay="160" data-i18n="hero.slogan">Depuis 1678 — l'authenticité marocaine aux portes du Parc National de Tazekka</p>
+
+        <div class="hero__cta reveal" data-reveal="fade-up" data-delay="360">
+          <button type="button" class="btn btn--gold hero__book" data-reserve data-i18n="cta.book">Réserver</button>
+          <a href="#accommodation" class="btn btn--outline" data-i18n="cta.viewRooms">Découvrir nos hébergements</a>
+        </div>
+
+        <!-- Hero Booking Card -->
+        <div class="hero-booking reveal" data-reveal="fade-up" data-delay="480">
+          <div class="hero-booking__card glass">
+            <h3 class="hero-booking__title" data-i18n="booking.title">Réservez votre séjour</h3>
+            <div class="hero-booking__grid">
+              <div class="form__group">
+                <label for="hb-checkin" data-i18n="booking.checkin">Arrivée</label>
+                <input type="date" id="hb-checkin" name="hb-checkin" />
+              </div>
+              <div class="form__group">
+                <label for="hb-checkout" data-i18n="booking.checkout">Départ</label>
+                <input type="date" id="hb-checkout" name="hb-checkout" />
+              </div>
+              <div class="form__group">
+                <label for="hb-adults" data-i18n="booking.adults">Adultes</label>
+                <select id="hb-adults" name="hb-adults"></select>
+              </div>
+              <div class="form__group">
+                <label for="hb-children" data-i18n="booking.children">Enfants</label>
+                <select id="hb-children" name="hb-children"></select>
+              </div>
+            </div>
+
+            <!-- Dynamic child age selectors -->
+            <div class="hero-booking__ages" id="hb-childAges" hidden>
+              <p class="hero-booking__ages-label" data-i18n="booking.agesLabel">Âge des enfants</p>
+              <div class="hero-booking__ages-grid" id="hb-childAgesGrid"></div>
+            </div>
+
+            <button type="button" class="btn btn--gold btn--block hero-booking__submit" id="hb-bookNow" data-i18n="cta.book">Réserver</button>
+            <p class="hero-booking__status" id="hb-status" role="status" aria-live="polite"></p>
+          </div>
+
+          <!-- Live Reservation Summary -->
+          <div class="hero-booking__summary" id="hb-summary">
+            <h4 class="hero-booking__summary-title" data-i18n="booking.summaryTitle">Résumé de la réservation</h4>
+            <dl class="hero-booking__summary-list">
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.checkin">Arrivée</dt>
+                <dd id="hb-sum-checkin">—</dd>
+              </div>
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.checkout">Départ</dt>
+                <dd id="hb-sum-checkout">—</dd>
+              </div>
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.adults">Adultes</dt>
+                <dd id="hb-sum-adults">2</dd>
+              </div>
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.children">Enfants</dt>
+                <dd id="hb-sum-children">0</dd>
+              </div>
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.ages">Âges</dt>
+                <dd id="hb-sum-ages">—</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll">
+        <span data-i18n="hero.scroll">Défiler</span>
+        <div class="hero__scroll-mouse"></div>
+      </div>
+    </section>
+
+    <!-- ============ Accommodation (Rooms, Suites & Dormitories) ============ -->
+    <section class="section section--alt" id="accommodation">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow reveal" data-reveal="fade-up" data-i18n="acc.eyebrow">Séjournez chez nous</span>
+          <h2 class="section__title reveal" data-reveal="fade-up" data-delay="80" data-i18n="acc.title">Hébergement</h2>
+          <p class="section__sub reveal" data-reveal="fade-up" data-delay="160" data-i18n="acc.sub">
+            Des chambres douillettes aux dortoirs conviviaux — chaque espace marie l'élégance marocaine traditionnelle au confort moderne.
+          </p>
+        </div>
+
+        <!-- Cards are rendered from ACCOMMODATIONS (js/config.js) so all three
+             languages share a single source of content. -->
+        <div class="stay-grid" id="accommodationGrid"></div>
+
+        <p class="stay-note reveal" data-reveal="fade-up" data-i18n="acc.note">
+          25 chambres et suites au total : 14 chambres doubles, 7 suites et 4 dortoirs.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Services ============ -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow reveal" data-reveal="fade-up" data-i18n="srv.eyebrow">Services du Resort</span>
+          <h2 class="section__title reveal" data-reveal="fade-up" data-delay="80" data-i18n="srv.title">Nos Services</h2>
+          <p class="section__sub reveal" data-reveal="fade-up" data-delay="160" data-i18n="srv.sub">
+            Chaque détail pensé pour un séjour authentique et sans souci.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service reveal" data-reveal="fade-up">
+            <div class="service__icon">
+              <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M16 6v36M16 6a6 6 0 0 1 0 16M32 6c-4 0-6 8-6 16h6M32 6v36" /></g></svg>
+            </div>
+            <div class="service__body">
+              <h3 class="service__name" data-i18n="srv.dining">Restauration</h3>
+              <p class="service__desc" data-i18n="srv.diningDesc">Demi-pension ou pension complète, incluse et facturée par jour.</p>
+            </div>
+            <div class="service__foot">
+              <span class="service__badge service__badge--included" data-i18n="srv.diningTag">Inclus</span>
+              <span class="service__billing" data-i18n="srv.perDay">Facturé par jour</span>
+            </div>
+          </article>
+
+          <article class="service reveal" data-reveal="fade-up" data-delay="80">
+            <div class="service__icon">
+              <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="14" r="5" /><circle cx="34" cy="14" r="5" /><path d="M6 40v-4a8 8 0 0 1 8-8h4a8 8 0 0 1 8 8v4M28 40v-4a8 8 0 0 1 8-8h0a8 8 0 0 1 8 8v4" /></g></svg>
+            </div>
+            <div class="service__body">
+              <h3 class="service__name" data-i18n="srv.events">Événementiel</h3>
+              <p class="service__desc" data-i18n="srv.eventsDesc">Organisation de vos mariages, séminaires et célébrations.</p>
+            </div>
+            <div class="service__foot">
+              <span class="service__badge" data-i18n="srv.extra">En supplément</span>
+              <span class="service__billing" data-i18n="srv.perService">Facturé par prestation</span>
+            </div>
+          </article>
+
+          <article class="service reveal" data-reveal="fade-up" data-delay="160">
+            <div class="service__icon">
+              <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24h6l6-14 4 4-2 10h8l4 4-2 6h-8l-4-4H6z" /><path d="M14 24v8a4 4 0 0 0 4 4h22" /></g></svg>
+            </div>
+            <div class="service__body">
+              <h3 class="service__name" data-i18n="srv.transport">Transport</h3>
+              <p class="service__desc" data-i18n="srv.transportDesc">Transferts et déplacements depuis Oued Amlil et la région de Taza.</p>
+            </div>
+            <div class="service__foot">
+              <span class="service__badge" data-i18n="srv.extra">En supplément</span>
+              <span class="service__billing" data-i18n="srv.perService">Facturé par prestation</span>
+            </div>
+          </article>
+
+          <article class="service reveal" data-reveal="fade-up" data-delay="240">
+            <div class="service__icon">
+              <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40c0-8 7-14 16-14s16 6 16 14" /><circle cx="24" cy="16" r="8" /><path d="M24 20v4" /></g></svg>
+            </div>
+            <div class="service__body">
+              <h3 class="service__name" data-i18n="srv.hiking">Randonnées</h3>
+              <p class="service__desc" data-i18n="srv.hikingDesc">Sorties nature sur les sentiers du Parc National de Tazekka.</p>
+            </div>
+            <div class="service__foot">
+              <span class="service__badge" data-i18n="srv.extra">En supplément</span>
+              <span class="service__billing" data-i18n="srv.perService">Facturé par prestation</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Gallery ============ -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow reveal" data-reveal="fade-up" data-i18n="gal.eyebrow">Voyage Visuel</span>
+          <h2 class="section__title reveal" data-reveal="fade-up" data-delay="80" data-i18n="gal.title">Galerie</h2>
+          <p class="section__sub reveal" data-reveal="fade-up" data-delay="160" data-i18n="gal.sub">
+            Un aperçu de la beauté et de l'authenticité d'Azzaouia Resort.
+          </p>
+        </div>
+
+        <div class="gallery__filters reveal" data-reveal="fade-up">
+          <button class="gallery__filter is-active" data-filter="all" aria-selected="true" data-i18n="gal.all">Tout</button>
+          <button class="gallery__filter" data-filter="rooms" aria-selected="false" data-i18n="gal.rooms">Chambres</button>
+          <button class="gallery__filter" data-filter="suites" aria-selected="false" data-i18n="gal.suites">Suites</button>
+          <button class="gallery__filter" data-filter="dorms" aria-selected="false" data-i18n="gal.dorms">Dortoirs</button>
+          <button class="gallery__filter" data-filter="grounds" aria-selected="false" data-i18n="gal.grounds">Domaine</button>
+        </div>
+
+        <div class="gallery__grid">
+          <figure class="gallery__item gallery__item--wide" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-01.jpg">
+            <img src="assets/img/chambre-double/chambre-double-01-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-01.jpg">
+            <img src="assets/img/grande-suite/grande-suite-01-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-01.jpg">
+            <img src="assets/img/petite-suite/petite-suite-01-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="dorms" data-src="assets/img/dortoir/dortoir-01.jpg">
+            <img src="assets/img/dortoir/dortoir-01-sm.jpg" alt="Dortoir — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capDorm">Dortoir</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-01.jpg">
+            <img src="assets/img/domaine/domaine-01-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-02.jpg">
+            <img src="assets/img/chambre-double/chambre-double-02-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-02.jpg">
+            <img src="assets/img/grande-suite/grande-suite-02-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-02.jpg">
+            <img src="assets/img/petite-suite/petite-suite-02-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="dorms" data-src="assets/img/dortoir/dortoir-02.jpg">
+            <img src="assets/img/dortoir/dortoir-02-sm.jpg" alt="Dortoir — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capDorm">Dortoir</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-02.jpg">
+            <img src="assets/img/domaine/domaine-02-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-03.jpg">
+            <img src="assets/img/chambre-double/chambre-double-03-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-03.jpg">
+            <img src="assets/img/grande-suite/grande-suite-03-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-03.jpg">
+            <img src="assets/img/petite-suite/petite-suite-03-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="dorms" data-src="assets/img/dortoir/dortoir-03.jpg">
+            <img src="assets/img/dortoir/dortoir-03-sm.jpg" alt="Dortoir — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capDorm">Dortoir</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-03.jpg">
+            <img src="assets/img/domaine/domaine-03-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-04.jpg">
+            <img src="assets/img/chambre-double/chambre-double-04-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-04.jpg">
+            <img src="assets/img/grande-suite/grande-suite-04-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-04.jpg">
+            <img src="assets/img/petite-suite/petite-suite-04-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="dorms" data-src="assets/img/dortoir/dortoir-04.jpg">
+            <img src="assets/img/dortoir/dortoir-04-sm.jpg" alt="Dortoir — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capDorm">Dortoir</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-04.jpg">
+            <img src="assets/img/domaine/domaine-04-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-05.jpg">
+            <img src="assets/img/chambre-double/chambre-double-05-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-05.jpg">
+            <img src="assets/img/grande-suite/grande-suite-05-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-05.jpg">
+            <img src="assets/img/petite-suite/petite-suite-05-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="dorms" data-src="assets/img/dortoir/dortoir-05.jpg">
+            <img src="assets/img/dortoir/dortoir-05-sm.jpg" alt="Dortoir — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capDorm">Dortoir</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-05.jpg">
+            <img src="assets/img/domaine/domaine-05-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-06.jpg">
+            <img src="assets/img/chambre-double/chambre-double-06-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-06.jpg">
+            <img src="assets/img/grande-suite/grande-suite-06-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-06.jpg">
+            <img src="assets/img/petite-suite/petite-suite-06-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="dorms" data-src="assets/img/dortoir/dortoir-06.jpg">
+            <img src="assets/img/dortoir/dortoir-06-sm.jpg" alt="Dortoir — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capDorm">Dortoir</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-06.jpg">
+            <img src="assets/img/domaine/domaine-06-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-07.jpg">
+            <img src="assets/img/chambre-double/chambre-double-07-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-07.jpg">
+            <img src="assets/img/grande-suite/grande-suite-07-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-07.jpg">
+            <img src="assets/img/petite-suite/petite-suite-07-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-07.jpg">
+            <img src="assets/img/domaine/domaine-07-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-08.jpg">
+            <img src="assets/img/chambre-double/chambre-double-08-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-08.jpg">
+            <img src="assets/img/grande-suite/grande-suite-08-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-08.jpg">
+            <img src="assets/img/petite-suite/petite-suite-08-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-08.jpg">
+            <img src="assets/img/domaine/domaine-08-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-09.jpg">
+            <img src="assets/img/chambre-double/chambre-double-09-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-09.jpg">
+            <img src="assets/img/grande-suite/grande-suite-09-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-09.jpg">
+            <img src="assets/img/petite-suite/petite-suite-09-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-09.jpg">
+            <img src="assets/img/domaine/domaine-09-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-10.jpg">
+            <img src="assets/img/chambre-double/chambre-double-10-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/grande-suite/grande-suite-10.jpg">
+            <img src="assets/img/grande-suite/grande-suite-10-sm.jpg" alt="Grande Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capLargeSuite">Grande Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-10.jpg">
+            <img src="assets/img/petite-suite/petite-suite-10-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-10.jpg">
+            <img src="assets/img/domaine/domaine-10-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-11.jpg">
+            <img src="assets/img/chambre-double/chambre-double-11-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-11.jpg">
+            <img src="assets/img/petite-suite/petite-suite-11-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-11.jpg">
+            <img src="assets/img/domaine/domaine-11-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="rooms" data-src="assets/img/chambre-double/chambre-double-12.jpg">
+            <img src="assets/img/chambre-double/chambre-double-12-sm.jpg" alt="Chambre Double — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capRoom">Chambre Double</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-12.jpg">
+            <img src="assets/img/petite-suite/petite-suite-12-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-12.jpg">
+            <img src="assets/img/domaine/domaine-12-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-13.jpg">
+            <img src="assets/img/petite-suite/petite-suite-13-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-13.jpg">
+            <img src="assets/img/domaine/domaine-13-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-14.jpg">
+            <img src="assets/img/petite-suite/petite-suite-14-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-14.jpg">
+            <img src="assets/img/domaine/domaine-14-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-15.jpg">
+            <img src="assets/img/petite-suite/petite-suite-15-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-15.jpg">
+            <img src="assets/img/domaine/domaine-15-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-16.jpg">
+            <img src="assets/img/petite-suite/petite-suite-16-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-16.jpg">
+            <img src="assets/img/domaine/domaine-16-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-17.jpg">
+            <img src="assets/img/petite-suite/petite-suite-17-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-17.jpg">
+            <img src="assets/img/domaine/domaine-17-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-18.jpg">
+            <img src="assets/img/petite-suite/petite-suite-18-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-18.jpg">
+            <img src="assets/img/domaine/domaine-18-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-19.jpg">
+            <img src="assets/img/petite-suite/petite-suite-19-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-19.jpg">
+            <img src="assets/img/domaine/domaine-19-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-20.jpg">
+            <img src="assets/img/petite-suite/petite-suite-20-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-20.jpg">
+            <img src="assets/img/domaine/domaine-20-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-21.jpg">
+            <img src="assets/img/petite-suite/petite-suite-21-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-21.jpg">
+            <img src="assets/img/domaine/domaine-21-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-22.jpg">
+            <img src="assets/img/petite-suite/petite-suite-22-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-22.jpg">
+            <img src="assets/img/domaine/domaine-22-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="suites" data-src="assets/img/petite-suite/petite-suite-23.jpg">
+            <img src="assets/img/petite-suite/petite-suite-23-sm.jpg" alt="Petite Suite — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capSmallSuite">Petite Suite</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-23.jpg">
+            <img src="assets/img/domaine/domaine-23-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-24.jpg">
+            <img src="assets/img/domaine/domaine-24-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-25.jpg">
+            <img src="assets/img/domaine/domaine-25-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-26.jpg">
+            <img src="assets/img/domaine/domaine-26-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-27.jpg">
+            <img src="assets/img/domaine/domaine-27-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-28.jpg">
+            <img src="assets/img/domaine/domaine-28-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-29.jpg">
+            <img src="assets/img/domaine/domaine-29-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-30.jpg">
+            <img src="assets/img/domaine/domaine-30-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+          <figure class="gallery__item" data-category="grounds" data-src="assets/img/domaine/domaine-31.jpg">
+            <img src="assets/img/domaine/domaine-31-sm.jpg" alt="Le Domaine — Azzaouia Resort" loading="lazy" decoding="async" width="900" height="600" />
+            <figcaption data-i18n="gal.capEstate">Le Domaine</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="section section--alt" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__media reveal" data-reveal="fade-right">
+            <div class="about__img-wrap">
+              <img src="assets/img/domaine/domaine-01-sm.jpg" alt="Azzaouia Resort — le domaine" loading="lazy" width="800" height="1067" />
+            </div>
+            <div class="about__badge glass">
+              <span class="about__badge-num" data-counter="1678">0</span>
+              <span class="about__badge-label" data-i18n="abt.since">Depuis</span>
+            </div>
+          </div>
+
+          <div class="about__text reveal" data-reveal="fade-left">
+            <span class="eyebrow" data-i18n="abt.eyebrow">Notre Histoire</span>
+            <h2 class="section__title" data-i18n="abt.title">Un Sanctuaire Marocain</h2>
+            <p data-i18n="abt.p1">
+              Niché au village d'Aïn Sahla, aux portes du Parc National de Tazekka, Azzaouia Resort
+              perpétue depuis 1678 une tradition d'hospitalité marocaine authentique. Notre domaine
+              marie l'architecture traditionnelle à un confort chaleureux, pour une expérience vraie
+              et ressourçante.
+            </p>
+            <p data-i18n="abt.p2">
+              Entre chambres, suites et dortoirs, chaque espace raconte une histoire
+              de patience et de soin. Notre équipe veille à ce que chaque hôte se sente non seulement
+              bienvenu, mais véritablement chez lui.
+            </p>
+
+            <ul class="about__features">
+              <li><span class="about__feature-icon">&#10003;</span> <span data-i18n="abt.f1">Architecture marocaine traditionnelle</span></li>
+              <li><span class="about__feature-icon">&#10003;</span> <span data-i18n="abt.f2">Aux portes du Parc National de Tazekka</span></li>
+              <li><span class="about__feature-icon">&#10003;</span> <span data-i18n="abt.f3">Cuisine authentique</span></li>
+              <li><span class="about__feature-icon">&#10003;</span> <span data-i18n="abt.f4">Hospitalité familiale depuis 1678</span></li>
+            </ul>
+
+            <div class="about__stats">
+              <div class="stat">
+                <span class="stat__num" data-counter="25">0</span>
+                <span class="stat__label" data-i18n="abt.stat1">Chambres &amp; Suites</span>
+              </div>
+              <div class="stat">
+                <span class="stat__num" data-counter="4">0</span>
+                <span class="stat__label" data-i18n="abt.stat2">Catégories de services</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Testimonials ============ -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow reveal" data-reveal="fade-up" data-i18n="tst.eyebrow">Avis de nos Hôtes</span>
+          <h2 class="section__title reveal" data-reveal="fade-up" data-delay="80" data-i18n="tst.title">Ce Que Disent Nos Hôtes</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial glass reveal" data-reveal="fade-up">
+            <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial__quote" data-i18n="tst.q1">Un séjour authentique du début à la fin. Le calme d'Aïn Sahla et la gentillesse de l'équipe nous ont marqués. La Petite Suite était magnifique.</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar">SC</div>
+              <div>
+                <strong>Sophie Chen</strong>
+                <span data-i18n="tst.c1">Paris, France</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial glass reveal" data-reveal="fade-up" data-delay="240">
+            <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial__quote" data-i18n="tst.q3">La Grande Suite était spacieuse et confortable pour toute la famille. Les enfants ont adoré les randonnées autour du parc de Tazekka. Nous reviendrons.</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar">JR</div>
+              <div>
+                <strong>Jamal Radi</strong>
+                <span data-i18n="tst.c3">Casablanca, Maroc</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Location ============ -->
+    <section class="section section--alt" id="location">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow reveal" data-reveal="fade-up" data-i18n="loc.eyebrow">Nous Trouver</span>
+          <h2 class="section__title reveal" data-reveal="fade-up" data-delay="80" data-i18n="loc.title">Notre Localisation</h2>
+          <p class="section__sub reveal" data-reveal="fade-up" data-delay="160" data-i18n="loc.sub">
+            Idéalement situé au village d'Aïn Sahla, aux portes du Parc National de Tazekka.
+          </p>
+        </div>
+
+        <div class="location__grid">
+          <div class="location__info reveal" data-reveal="fade-right">
+            <div class="location__item">
+              <div class="location__icon">
+                <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c-7 0-12 5-12 12 0 9 12 22 12 22s12-13 12-22c0-7-5-12-12-12z" /><circle cx="24" cy="18" r="5" /></g></svg>
+              </div>
+              <div>
+                <h3 class="location__label" data-i18n="loc.address">Adresse</h3>
+                <p class="location__value" data-i18n="loc.addressVal">Village Aïn Sahla, Commune Bouchfaa, Cercle Oued Amlil, Province de Taza, Maroc</p>
+              </div>
+            </div>
+            <div class="location__item">
+              <div class="location__icon">
+                <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14l14 10 8-6 14 10v14H6z" /><path d="M6 14v22" /></g></svg>
+              </div>
+              <div>
+                <h3 class="location__label" data-i18n="loc.region">Région</h3>
+                <p class="location__value" data-i18n="loc.regionVal">Fès-Meknès, Province de Taza</p>
+              </div>
+            </div>
+            <div class="location__item">
+              <div class="location__icon">
+                <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="24" cy="24" r="18" /><path d="M24 14v10l7 4" /></g></svg>
+              </div>
+              <div>
+                <h3 class="location__label" data-i18n="loc.desk">Réception</h3>
+                <p class="location__value" data-i18n="loc.deskVal">Ouverte 24h/24, 7j/7</p>
+              </div>
+            </div>
+            <div class="location__item">
+              <div class="location__icon">
+                <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24h6l6-14 4 4-2 10h8l4 4-2 6h-8l-4-4H6z" /><path d="M14 24v8a4 4 0 0 0 4 4h22" /></g></svg>
+              </div>
+              <div>
+                <h3 class="location__label" data-i18n="loc.access">Accès</h3>
+                <p class="location__value" data-i18n="loc.accessVal">Oued Amlil, Province de Taza — Transport disponible en extra</p>
+              </div>
+            </div>
+            <div class="location__item">
+              <div class="location__icon">
+                <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 40c0-8 7-14 16-14s16 6 16 14" /><circle cx="24" cy="16" r="8" /><path d="M24 20v4" /></g></svg>
+              </div>
+              <div>
+                <h3 class="location__label" data-i18n="loc.nearby">À Proximité</h3>
+                <p class="location__value" data-i18n="loc.nearbyVal">Parc National de Tazekka — Randonnées et nature environnante</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="location__map reveal" data-reveal="fade-left">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-4.36%2C34.08%2C-4.16%2C34.28&layer=mapnik&marker=34.18%2C-4.26"
+              title="Carte montrant la localisation d'Azzaouia Resort à Aïn Sahla, Taza"
+              data-i18n-attr="title:loc.mapTitle"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow reveal" data-reveal="fade-up" data-i18n="ctc.eyebrow">Contactez-nous</span>
+          <h2 class="section__title reveal" data-reveal="fade-up" data-delay="80" data-i18n="ctc.title">Contact</h2>
+          <p class="section__sub reveal" data-reveal="fade-up" data-delay="160" data-i18n="ctc.sub">
+            Une question ou une demande particulière ? Notre équipe est à votre écoute.
+          </p>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__info">
+            <div class="contact__item glass reveal" data-reveal="fade-right">
+              <span class="contact__icon">&#9742;</span>
+              <div>
+                <strong data-i18n="ctc.phone">Téléphone</strong>
+                <p><a href="tel:+212661893587" dir="ltr">06.63.33.56.72</a></p>
+                <p><a href="tel:+212661893587" dir="ltr">06.70.19.60.94</a></p>
+              </div>
+            </div>
+            <div class="contact__item glass reveal" data-reveal="fade-right" data-delay="80">
+              <span class="contact__icon">&#9993;</span>
+              <div>
+                <strong data-i18n="ctc.email">Email</strong>
+                <p><a href="mailto:azzaouiaresort@gmail.com" dir="ltr">azzaouiaresort@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="contact__item glass reveal" data-reveal="fade-right" data-delay="160">
+              <span class="contact__icon">&#9873;</span>
+              <div>
+                <strong data-i18n="ctc.address">Adresse</strong>
+                <p data-i18n="loc.addressVal">Village Aïn Sahla, Commune Bouchfaa, Cercle Oued Amlil, Province de Taza, Maroc</p>
+              </div>
+            </div>
+            <div class="contact__item glass reveal" data-reveal="fade-right" data-delay="240">
+              <span class="contact__icon">&#9201;</span>
+              <div>
+                <strong data-i18n="ctc.desk">Réception</strong>
+                <p data-i18n="loc.deskVal">Ouverte 24h/24, 7j/7</p>
+              </div>
+            </div>
+            <div class="contact__item glass reveal" data-reveal="fade-right" data-delay="320">
+              <span class="contact__icon">&#128179;</span>
+              <div>
+                <strong data-i18n="ctc.payment">Modes de paiement</strong>
+                <p data-i18n="ctc.paymentVal">Espèces, virement bancaire, chèque</p>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact__form glass reveal" data-reveal="fade-left" id="contactForm" novalidate>
+            <h3 class="booking-form__title" data-i18n="ctc.formTitle">Envoyez-nous un message</h3>
+            <p class="booking-form__sub" data-i18n="ctc.formSub">Questions ou demandes particulières ? Nous répondons sous 24h.</p>
+
+            <div class="form__row">
+              <div class="form__group">
+                <label for="name" data-i18n="ctc.name">Nom complet</label>
+                <input type="text" id="name" name="name" required autocomplete="name" />
+              </div>
+              <div class="form__group">
+                <label for="email" data-i18n="ctc.email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="email" dir="ltr" />
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label for="message" data-i18n="ctc.message">Message</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--gold btn--block" data-i18n="ctc.send">Envoyer le message</button>
+            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <img src="assets/icons/logo.jpeg" alt="Azzaouia Resort" width="32" height="32" style="border-radius:50%;object-fit:cover;" />
+            <span>Azzaouia Resort</span>
+          </div>
+          <p class="footer__tagline" data-i18n="ftr.tagline">Depuis 1678 — l'authenticité marocaine aux portes du Parc National de Tazekka</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" /></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8c-.7.3-1.5.5-2.3.6.8-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.4 4.4a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4a4.1 4.1 0 0 1-1.9.1c.5 1.6 2 2.8 3.8 2.8A8.3 8.3 0 0 1 2 18.2a11.7 11.7 0 0 0 6.3 1.8c7.5 0 11.7-6.2 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2z" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading" data-i18n="ftr.quick">Liens Rapides</h3>
+          <ul class="footer__links">
+            <li><a href="#home" data-i18n="nav.home">Accueil</a></li>
+            <li><a href="#accommodation" data-i18n="nav.accommodation">Hébergement</a></li>
+            <li><a href="#location" data-i18n="nav.location">Localisation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading" data-i18n="ftr.services">Services</h3>
+          <ul class="footer__links">
+            <li><a href="#services" data-i18n="srv.dining">Restauration</a></li>
+            <li><a href="#services" data-i18n="srv.events">Événementiel</a></li>
+            <li><a href="#services" data-i18n="srv.transport">Transport</a></li>
+            <li><a href="#services" data-i18n="srv.hiking">Randonnées</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading" data-i18n="ftr.contact">Contact</h3>
+          <ul class="footer__contact">
+            <li data-i18n="loc.addressVal">Village Aïn Sahla, Commune Bouchfaa, Cercle Oued Amlil, Province de Taza</li>
+            <li><a href="tel:+212661893587" dir="ltr">+212 6 61 89 35 87</a></li>
+            <li><a href="mailto:contact@azzaouiaresort.ma" dir="ltr">contact@azzaouiaresort.ma</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> <span data-i18n="ftr.rights">Azzaouia Resort. Tous droits réservés.</span></p>
+        <p data-i18n="ftr.since">Une histoire d'hospitalité depuis 1678</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ Back to Top ============ -->
+  <button class="back-to-top" id="backToTop" data-i18n-attr="aria-label:cta.backTop" aria-label="Revenir en haut">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- ============ Accommodation detail modal ============ -->
+  <div class="stay-modal" id="stayModal" hidden role="dialog" aria-modal="true" aria-labelledby="stayModalTitle">
+    <div class="stay-modal__backdrop" data-close-modal></div>
+    <div class="stay-modal__panel" role="document">
+      <button class="stay-modal__close" id="stayModalClose" data-close-modal
+              data-i18n-attr="aria-label:cta.close" aria-label="Fermer">&times;</button>
+      <div class="stay-modal__body" id="stayModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ============ Lightbox ============ -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true">
+    <button class="lightbox__close" id="lightboxClose" data-i18n-attr="aria-label:cta.close" aria-label="Fermer">&times;</button>
+    <button class="lightbox__prev" id="lightboxPrev" data-i18n-attr="aria-label:cta.prev" aria-label="Image précédente">&#8249;</button>
+    <button class="lightbox__next" id="lightboxNext" data-i18n-attr="aria-label:cta.next" aria-label="Image suivante">&#8250;</button>
+    <figure class="lightbox__figure">
+      <img id="lightboxImg" src="" alt="" />
+      <figcaption class="lightbox__caption">
+        <span id="lightboxCaption"></span>
+        <span class="lightbox__counter" id="lightboxCounter"></span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- ============ Reservation notice (only if the Nozoul URL is still missing) ============ -->
+  <div class="toast" id="reservationToast" role="status" aria-live="polite" hidden>
+    <span data-i18n="booking.notConfigured">Le moteur de réservation n'est pas encore configuré.</span>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
