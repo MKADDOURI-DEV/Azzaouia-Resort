@@ -484,8 +484,36 @@
         var show = category === "all" || item.getAttribute("data-category") === category;
         item.classList.toggle("is-hidden", !show);
       });
+      applyGalleryLimit();
     });
   });
+
+  /* Show only the first GALLERY_MAX photos of the current filter; the last
+     visible tile gets a "+N" overlay and opens the lightbox with the rest. */
+  var GALLERY_MAX = 6;
+  function applyGalleryLimit() {
+    var matching = galleryItems.filter(function (item) {
+      return !item.classList.contains("is-hidden");
+    });
+    galleryItems.forEach(function (item) {
+      item.classList.remove("is-more");
+      var old = item.querySelector(".gallery__more");
+      if (old) old.remove();
+    });
+    matching.forEach(function (item, i) {
+      if (i >= GALLERY_MAX) item.classList.add("is-more");
+    });
+    var extra = matching.length - GALLERY_MAX;
+    if (extra > 0) {
+      var last = matching[GALLERY_MAX - 1];
+      var badge = document.createElement("span");
+      badge.className = "gallery__more";
+      badge.setAttribute("aria-hidden", "true");
+      badge.textContent = "+" + extra;
+      last.appendChild(badge);
+    }
+  }
+  applyGalleryLimit();
 
   var lightbox = $("lightbox");
   var lightboxImg = $("lightboxImg");

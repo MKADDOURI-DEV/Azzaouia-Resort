@@ -78,27 +78,11 @@ var ACCOMMODATIONS = [
     },
     images: [
       "assets/img/chambre-double/chambre-double-01.jpg",
-      "assets/img/chambre-double/chambre-double-02.jpg",
-      "assets/img/chambre-double/chambre-double-03.jpg",
-      "assets/img/chambre-double/chambre-double-04.jpg",
-      "assets/img/chambre-double/chambre-double-05.jpg",
-      "assets/img/chambre-double/chambre-double-06.jpg",
-      "assets/img/chambre-double/chambre-double-07.jpg",
-      "assets/img/chambre-double/chambre-double-08.jpg",
-      "assets/img/chambre-double/chambre-double-09.jpg",
-      "assets/img/chambre-double/chambre-double-10.jpg"
+      "assets/img/chambre-double/chambre-double-02.jpg"
     ],
     thumbs: [
       "assets/img/chambre-double/chambre-double-01-sm.jpg",
-      "assets/img/chambre-double/chambre-double-02-sm.jpg",
-      "assets/img/chambre-double/chambre-double-03-sm.jpg",
-      "assets/img/chambre-double/chambre-double-04-sm.jpg",
-      "assets/img/chambre-double/chambre-double-05-sm.jpg",
-      "assets/img/chambre-double/chambre-double-06-sm.jpg",
-      "assets/img/chambre-double/chambre-double-07-sm.jpg",
-      "assets/img/chambre-double/chambre-double-08-sm.jpg",
-      "assets/img/chambre-double/chambre-double-09-sm.jpg",
-      "assets/img/chambre-double/chambre-double-10-sm.jpg"
+      "assets/img/chambre-double/chambre-double-02-sm.jpg"
     ]
   },
 
@@ -142,28 +126,10 @@ var ACCOMMODATIONS = [
       ar: ["السعة القصوى: 6 أشخاص"]
     },
     images: [
-      "assets/img/grande-suite/grande-suite-01.jpg",
-      "assets/img/grande-suite/grande-suite-02.jpg",
-      "assets/img/grande-suite/grande-suite-03.jpg",
-      "assets/img/grande-suite/grande-suite-04.jpg",
-      "assets/img/grande-suite/grande-suite-05.jpg",
-      "assets/img/grande-suite/grande-suite-06.jpg",
-      "assets/img/grande-suite/grande-suite-07.jpg",
-      "assets/img/grande-suite/grande-suite-08.jpg",
-      "assets/img/grande-suite/grande-suite-09.jpg",
-      "assets/img/grande-suite/grande-suite-10.jpg"
+      "assets/img/grande-suite/grande-suite-01.jpg"
     ],
     thumbs: [
-      "assets/img/grande-suite/grande-suite-01-sm.jpg",
-      "assets/img/grande-suite/grande-suite-02-sm.jpg",
-      "assets/img/grande-suite/grande-suite-03-sm.jpg",
-      "assets/img/grande-suite/grande-suite-04-sm.jpg",
-      "assets/img/grande-suite/grande-suite-05-sm.jpg",
-      "assets/img/grande-suite/grande-suite-06-sm.jpg",
-      "assets/img/grande-suite/grande-suite-07-sm.jpg",
-      "assets/img/grande-suite/grande-suite-08-sm.jpg",
-      "assets/img/grande-suite/grande-suite-09-sm.jpg",
-      "assets/img/grande-suite/grande-suite-10-sm.jpg"
+      "assets/img/grande-suite/grande-suite-01-sm.jpg"
     ]
   },
 
@@ -275,20 +241,10 @@ var ACCOMMODATIONS = [
       ar: ["السعة القصوى: 12 شخصًا"]
     },
     images: [
-      "assets/img/dortoir/dortoir-01.jpg",
-      "assets/img/dortoir/dortoir-02.jpg",
-      "assets/img/dortoir/dortoir-03.jpg",
-      "assets/img/dortoir/dortoir-04.jpg",
-      "assets/img/dortoir/dortoir-05.jpg",
-      "assets/img/dortoir/dortoir-06.jpg"
+      "assets/img/dortoir/dortoir-01.jpg"
     ],
     thumbs: [
-      "assets/img/dortoir/dortoir-01-sm.jpg",
-      "assets/img/dortoir/dortoir-02-sm.jpg",
-      "assets/img/dortoir/dortoir-03-sm.jpg",
-      "assets/img/dortoir/dortoir-04-sm.jpg",
-      "assets/img/dortoir/dortoir-05-sm.jpg",
-      "assets/img/dortoir/dortoir-06-sm.jpg"
+      "assets/img/dortoir/dortoir-01-sm.jpg"
     ]
   }
 ];
