@@ -2638,3 +2638,15 @@ body.is-locked {
 .gallery__item:has(.gallery__more) figcaption {
   display: none;
 }
+
+
+/* Booking card déplacée hors du hero : fond propre, lisible */
+.section--booking {
+  background: linear-gradient(180deg, #06281d 0%, #0b3b2b 100%);
+}
+.section--booking .hero-booking { margin-top: 0; }
+.section--booking .hero-booking__card {
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}

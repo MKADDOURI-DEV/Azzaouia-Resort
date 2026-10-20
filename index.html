@@ -105,67 +105,6 @@
           <button type="button" class="btn btn--gold hero__book" data-reserve data-i18n="cta.book">Réserver</button>
           <a href="#accommodation" class="btn btn--outline" data-i18n="cta.viewRooms">Découvrir nos hébergements</a>
         </div>
-
-        <!-- Hero Booking Card -->
-        <div class="hero-booking reveal" data-reveal="fade-up" data-delay="480">
-          <div class="hero-booking__card glass">
-            <h3 class="hero-booking__title" data-i18n="booking.title">Réservez votre séjour</h3>
-            <div class="hero-booking__grid">
-              <div class="form__group">
-                <label for="hb-checkin" data-i18n="booking.checkin">Arrivée</label>
-                <input type="date" id="hb-checkin" name="hb-checkin" />
-              </div>
-              <div class="form__group">
-                <label for="hb-checkout" data-i18n="booking.checkout">Départ</label>
-                <input type="date" id="hb-checkout" name="hb-checkout" />
-              </div>
-              <div class="form__group">
-                <label for="hb-adults" data-i18n="booking.adults">Adultes</label>
-                <select id="hb-adults" name="hb-adults"></select>
-              </div>
-              <div class="form__group">
-                <label for="hb-children" data-i18n="booking.children">Enfants</label>
-                <select id="hb-children" name="hb-children"></select>
-              </div>
-            </div>
-
-            <!-- Dynamic child age selectors -->
-            <div class="hero-booking__ages" id="hb-childAges" hidden>
-              <p class="hero-booking__ages-label" data-i18n="booking.agesLabel">Âge des enfants</p>
-              <div class="hero-booking__ages-grid" id="hb-childAgesGrid"></div>
-            </div>
-
-            <button type="button" class="btn btn--gold btn--block hero-booking__submit" id="hb-bookNow" data-i18n="cta.book">Réserver</button>
-            <p class="hero-booking__status" id="hb-status" role="status" aria-live="polite"></p>
-          </div>
-
-          <!-- Live Reservation Summary -->
-          <div class="hero-booking__summary" id="hb-summary">
-            <h4 class="hero-booking__summary-title" data-i18n="booking.summaryTitle">Résumé de la réservation</h4>
-            <dl class="hero-booking__summary-list">
-              <div class="hero-booking__summary-row">
-                <dt data-i18n="booking.checkin">Arrivée</dt>
-                <dd id="hb-sum-checkin">—</dd>
-              </div>
-              <div class="hero-booking__summary-row">
-                <dt data-i18n="booking.checkout">Départ</dt>
-                <dd id="hb-sum-checkout">—</dd>
-              </div>
-              <div class="hero-booking__summary-row">
-                <dt data-i18n="booking.adults">Adultes</dt>
-                <dd id="hb-sum-adults">2</dd>
-              </div>
-              <div class="hero-booking__summary-row">
-                <dt data-i18n="booking.children">Enfants</dt>
-                <dd id="hb-sum-children">0</dd>
-              </div>
-              <div class="hero-booking__summary-row">
-                <dt data-i18n="booking.ages">Âges</dt>
-                <dd id="hb-sum-ages">—</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
       </div>
 
       <div class="hero__scroll">
@@ -580,6 +519,71 @@
               data-i18n-attr="title:loc.mapTitle"
               loading="lazy"
             ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Booking (déplacé depuis le hero) ============ -->
+    <section class="section section--booking" id="booking">
+      <div class="container">
+        <div class="hero-booking reveal" data-reveal="fade-up" data-delay="480">
+          <div class="hero-booking__card glass">
+            <h3 class="hero-booking__title" data-i18n="booking.title">Réservez votre séjour</h3>
+            <div class="hero-booking__grid">
+              <div class="form__group">
+                <label for="hb-checkin" data-i18n="booking.checkin">Arrivée</label>
+                <input type="date" id="hb-checkin" name="hb-checkin" />
+              </div>
+              <div class="form__group">
+                <label for="hb-checkout" data-i18n="booking.checkout">Départ</label>
+                <input type="date" id="hb-checkout" name="hb-checkout" />
+              </div>
+              <div class="form__group">
+                <label for="hb-adults" data-i18n="booking.adults">Adultes</label>
+                <select id="hb-adults" name="hb-adults"></select>
+              </div>
+              <div class="form__group">
+                <label for="hb-children" data-i18n="booking.children">Enfants</label>
+                <select id="hb-children" name="hb-children"></select>
+              </div>
+            </div>
+
+            <!-- Dynamic child age selectors -->
+            <div class="hero-booking__ages" id="hb-childAges" hidden>
+              <p class="hero-booking__ages-label" data-i18n="booking.agesLabel">Âge des enfants</p>
+              <div class="hero-booking__ages-grid" id="hb-childAgesGrid"></div>
+            </div>
+
+            <button type="button" class="btn btn--gold btn--block hero-booking__submit" id="hb-bookNow" data-i18n="cta.book">Réserver</button>
+            <p class="hero-booking__status" id="hb-status" role="status" aria-live="polite"></p>
+          </div>
+
+          <!-- Live Reservation Summary -->
+          <div class="hero-booking__summary" id="hb-summary">
+            <h4 class="hero-booking__summary-title" data-i18n="booking.summaryTitle">Résumé de la réservation</h4>
+            <dl class="hero-booking__summary-list">
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.checkin">Arrivée</dt>
+                <dd id="hb-sum-checkin">—</dd>
+              </div>
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.checkout">Départ</dt>
+                <dd id="hb-sum-checkout">—</dd>
+              </div>
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.adults">Adultes</dt>
+                <dd id="hb-sum-adults">2</dd>
+              </div>
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.children">Enfants</dt>
+                <dd id="hb-sum-children">0</dd>
+              </div>
+              <div class="hero-booking__summary-row">
+                <dt data-i18n="booking.ages">Âges</dt>
+                <dd id="hb-sum-ages">—</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </div>
