@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg" />
+  <link rel="preload" as="image" href="assets/img/hero-poster.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -88,10 +89,10 @@
     <!-- ============ Hero ============ -->
     <section class="hero" id="home">
       <div class="hero__bg">
-        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
-               poster="assets/img/hero-poster.jpg" aria-hidden="true" tabindex="-1">
-          <source src="assets/video/azzaouia-hero.mp4" type="video/mp4" />
-        </video>
+        <video class="hero__video" id="heroVideo" muted loop playsinline preload="none"
+               poster="assets/img/hero-poster.jpg" aria-hidden="true" tabindex="-1"
+               data-src="assets/video/azzaouia-hero.mp4"
+               data-src-mobile="assets/video/azzaouia-hero-mobile.mp4"></video>
       </div>
       <div class="hero__overlay"></div>
 

@@ -22,6 +22,32 @@
     }, 600);
   });
 
+  /* ---------- Hero video : chargement différé + adaptatif ---------- */
+  (function () {
+    var v = $("heroVideo");
+    if (!v) return;
+    var conn = navigator.connection || {};
+    var slow = conn.saveData || /(^|-)2g$/.test(conn.effectiveType || "") || conn.effectiveType === "3g";
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (slow || reduce) return; /* le poster reste affiché */
+    var start = function () {
+      var mobile = window.matchMedia("(max-width: 768px)").matches;
+      v.src = (mobile && v.dataset.srcMobile) || v.dataset.src;
+      v.addEventListener("canplay", function () {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+        v.classList.add("is-ready");
+      }, { once: true });
+      v.load();
+    };
+    var go = function () {
+      if ("requestIdleCallback" in window) requestIdleCallback(start, { timeout: 2500 });
+      else setTimeout(start, 800);
+    };
+    if (document.readyState === "complete") go();
+    else window.addEventListener("load", go);
+  })();
+
   /* ---------- Scroll Progress · Sticky Nav · Back to Top ---------- */
   var scrollProgress = $("scrollProgress");
   var navbar = $("navbar");
