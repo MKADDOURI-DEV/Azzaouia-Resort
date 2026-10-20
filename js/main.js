@@ -16,10 +16,15 @@
 
   /* ---------- Loading Screen ---------- */
   var loader = $("loader");
+  var hideLoader = function () {
+    if (loader) loader.classList.add("is-hidden");
+  };
   window.addEventListener("load", function () {
-    setTimeout(function () {
-      if (loader) loader.classList.add("is-hidden");
-    }, 600);
+    setTimeout(hideLoader, 400);
+  });
+  /* Filet de sécurité : le loader ne doit jamais bloquer le site (polices/images lentes) */
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(hideLoader, 2500);
   });
 
   /* ---------- Hero video : chargement différé + adaptatif ---------- */
