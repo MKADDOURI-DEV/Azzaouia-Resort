@@ -591,12 +591,13 @@ ul {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(6, 40, 29, 0.5) 0%,
-    rgba(6, 40, 29, 0.4) 40%,
-    rgba(6, 40, 29, 0.75) 100%
+    rgba(6, 40, 29, 0.12) 0%,
+    rgba(6, 40, 29, 0.05) 45%,
+    rgba(6, 40, 29, 0.5) 100%
   );
 }
 
+.hero__content { text-shadow: 0 2px 18px rgba(0,0,0,.45); }
 .hero__content {
   position: relative;
   z-index: 2;
